@@ -1,0 +1,41 @@
+commit 7ac908b1f9f1b535ac75d98af99f4e19d597d7ea
+Author: ViktorijaVelichkovska <viktorija.velichkovska5@gmail.com>
+Date:   Sun Apr 14 12:56:24 2024 +0200
+
+    Call method makeBigStringFrom in main class
+
+commit 6444c5f643919d06bd7fb44d7e91860c1ad36b9a
+Author: ViktorijaVelichkovska <viktorija.velichkovska5@gmail.com>
+Date:   Sun Apr 14 12:41:17 2024 +0200
+
+    Fix wrong condition in makeBigStringFrom
+
+commit 176c81cd1b6d1cc3b543eb3de67fb7dd9132cb47
+Author: ViktorijaVelichkovska <viktorija.velichkovska5@gmail.com>
+Date:   Sun Apr 14 12:48:10 2024 +0200
+
+    Call method filterOddLengthStrings in main class
+
+commit 96d02ac69482893340568c8dd1695bb60bd56190
+Author: ViktorijaVelichkovska <viktorija.velichkovska5@gmail.com>
+Date:   Sun Apr 14 12:38:51 2024 +0200
+
+    Fix wrong condition in filterOddLengthStrings
+
+commit 3981b23be536270b8c59a6899ddff07b3e3c20f0
+Author: ViktorijaVelichkovska <viktorija.velichkovska5@gmail.com>
+Date:   Sun Apr 14 12:21:07 2024 +0200
+
+    Add starter code
+
+commit d7952e07ee6f62ed3e191fe6c10c6b6a0ecb13f4
+Author: ViktorijaVelichkovska <viktorija.velichkovska5@gmail.com>
+Date:   Sun Apr 14 12:18:45 2024 +0200
+
+    Initial commit
+
+commit 75f534d95bf77c6de868af7bf380f2af4b2c652b
+Author: ViktorijaVelichkovska <viktorija.velichkovska5@gmail.com>
+Date:   Sun Apr 14 12:05:38 2024 +0200
+
+    Initial commit

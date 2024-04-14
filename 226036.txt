@@ -1,0 +1,133 @@
+								Постапки за решението на лаб1
+
+
+3.Најпрво креирав remote репозиториум со соодветното име.
+
+4.Потоа и локалниот репозиториум исто така со соодветното име.
+
+5.поврзувањето на овие два репозиториума го направив со функцијата git remote add origin <link од оддалечениот репозиториум>
+
+6.Потоа креирање и додавање на README.md file, со соодветниот commit.
+додавањето на file-от е со наредбата git add README.md.
+commitot е со наредбата git commit -m "Initial commit".
+
+7.додавањето на трите files кои што ги симнуваме е со наредбата git add и патеката на фајловите. како и commitot git commit -m "Add starter code".
+
+8.синхронизација со наредбата git push --all origin .
+
+9.додавањето на двете нови гранки е со наредбата git branch. git branch bug1 за првата гранка  и git branch bug2 за втората гранка.
+
+10.префрлувањето од гранка на гранка со наредбата git checkout и името на гранката на која што сакаме да бидеме.
+
+11.Првата грешка во методот filterOddLengthStrings ја поправив со if(el.length() % 2 != 0), за да се филтрираат стрингови со непарна должина. така променетиот file го зачував и со
+наредбата git add го додадов а потоа и соодветниот commit, со наредбата git commit -m "Fix wrong condition in filterOddLengthStrings".
+
+13.Втората грешка во методот makeBigStringFrom ја поправив со if (el.length() >= minLength), за методот да ги конкатенира стринговите со должина најмалку minLength,
+ така променетиот file го зачував и со наредбата git add го додадов а потоа и соодветниот commit со наредбата git commit -m "Fix wrong condition in makeBigStringFrom".
+
+14/15.Потоа се враќам на гранката bug1 со git checkout bug1, го додавам соодветниот повик во  SILab1Main.java file-от, така изменетиот file го додавам со наредбата git add а потоа и соодветниот commit со наредбата git commit -m "Call method filterOddLengthStrings in main class".
+
+16/17.Истата постапка е и овде. Се префрлам на втората гранка со наредбата git checkout bug2, го додавам соодветниот повик во SILab1Main.java, така изменетиот file го додавам со наредбата
+git add а потоа и соодветниот commit со наредбата git commit -m "Call method makeBigStringFrom in main class".
+
+18.Синхронизација со git push --all origin.
+
+19.Се префрлувам на гранката master со наредбата git checkout master.
+
+20.Спојувањето на гранката1 со гранката master го правам со наредбата git merge bug1.
+
+21.потоа пак синхронизација со git push --all origin.
+
+22.со наредбата git checkout bug2 се префрлам на втората гранка.
+
+23.правам rebase на гранката bug2 спрема гранката master со наредбата git rebase master.
+овде се појави конфликт поради користењето на два методи 
+подолу праќам код од тоа како изгледаше и како го решив конфликтот:
+
+C:\Users\Viktorija\Desktop\SI_2024_lab1_226036>git rebase master
+Auto-merging SILab1Main.java
+CONFLICT (content): Merge conflict in SILab1Main.java
+error: could not apply b7466f6... Call method makeBigStringFrom in main class
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply b7466f6... Call method makeBigStringFrom in main class
+
+вака изгледаше текстуалната датотека откако се случи конфликтот:
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class SILab1Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        List<String> list = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            list.add(sc.next());
+<<<<<<< HEAD
+        }  // Call the filterOddLengthStrings method
+        System.out.println(SILab1_1.filterOddLengthStrings(list));
+
+=======
+ // Call the makeBigStringFrom method
+        System.out.println(SILab1_2.makeBigStringFrom(list));
+        }
+>>>>>>> b7466f6 (Call method makeBigStringFrom in main class)
+    }
+} how to solve the conflict?
+
+
+Моето решение:
+"<<<", "===" и ">>>" ги избришав и го променив вака кодот:
+
+for (int i = 0; i < n; i++) {
+    list.add(sc.next());
+}
+// Call both methods
+System.out.println(SILab1_1.filterOddLengthStrings(list));
+System.out.println(SILab1_2.makeBigStringFrom(list));
+
+мојата одлука беше и двата повика да останат.
+потоа наредбата git add SILab1Main.java за да го ставам на stage фајлот
+
+потоа наредбата git rebase --continue, од која добивам:
+[detached HEAD 7ac908b] Call method makeBigStringFrom in main class
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+Successfully rebased and updated refs/heads/bug2.
+овде по успешното совладување на конфликтот, се вклучи editorot и со наредбата ":wq" излегов од истиот. 
+
+Потоа ја употребив наредбата git push origin bug2 --force , за да се стават промените и на remote репозиториумот 
+овде добив:
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 740 bytes | 740.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/ViktorijaVelichkovska/SI_2024_lab1_226036.git
+ + b7466f6...7ac908b bug2 -> bug2 (forced update) 
+
+24. Се префрлам на гранката master со наредбата git checkout master.
+
+25.спојување на гранката2 со гранката master правам со наредбата git merge bug2.
+добивам:
+Ова покажува дека спојувањето e FF merge и е успешно спроведено.
+Updating 176c81c..7ac908b
+Fast-forward
+ SILab1Main.java | 9 ++++++---
+ SILab1_2.java   | 2 +-
+ 2 files changed, 7 insertions(+), 4 deletions(-)
+
+26.синхронизација со git push --all origin.
+
+28. креирам датотека logs со наредбата echo. > logs.txt, а со наредбата git log > logs.txt ги копирам досегашните git logovi.
+
+
+
