@@ -11,9 +11,12 @@ public class SILab1Main {
         List<String> list = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            list.add(sc.next());
-        }  // Call the filterOddLengthStrings method
-        System.out.println(SILab1_1.filterOddLengthStrings(list));
+    	    list.add(sc.next());
+}
+// Call both methods
+System.out.println(SILab1_1.filterOddLengthStrings(list));
+System.out.println(SILab1_2.makeBigStringFrom(list));
+
 
     }
 }
